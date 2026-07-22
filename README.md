@@ -1,7 +1,7 @@
 # Hive Smoke Radius
 
-Server-side Fabric mod for Minecraft **1.21.1** that widens vanilla's beehive
-"smoked out" mechanic.
+Server-side Fabric mod for Minecraft **1.21.x** (built against **1.21.11**)
+that widens vanilla's beehive "smoked out" mechanic.
 
 ## What it does
 
@@ -31,7 +31,8 @@ scan comes up empty, it re-runs the same vanilla scan on the 8 neighboring
 columns (with a reentrancy guard so those inner calls stay single-column).
 Vanilla's downward-scan depth and smoke-obstruction logic is reused untouched
 per column. This method's signature is stable across the 1.21.x line, so the
-jar built against 1.21.1 also loads on later 1.21.x servers.
+one jar loads on any 1.21.x server (boot-verified on 1.21.1, 1.21.4, and
+1.21.11).
 
 The mod has no Fabric API dependency — only Fabric Loader (>= 0.16).
 
