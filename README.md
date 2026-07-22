@@ -22,17 +22,16 @@ Everything else stays vanilla:
 ## How it works
 
 The vanilla smoked-out check is `CampfireBlock.isLitCampfireInRange(world, pos)`
-(Yarn mappings), called from two places:
+(Yarn mappings; Mojmap `isSmokeyPos`). Every beehive-smoking decision goes
+through it: `BeehiveBlockEntity.isSmoked()` (anger on hive break) and
+`BeehiveBlock`'s use-with-item handler (the shears/glass-bottle harvest path).
 
-- `BeehiveBlockEntity.isSmoked()` — decides whether bees released from a broken
-  hive get angry;
-- `BeehiveBlock`'s use-with-item handler — the shears/glass-bottle harvest path,
-  which calls the campfire check directly.
-
-Two small MixinExtras `@WrapOperation` mixins wrap those two call sites and OR
-in the same vanilla scan run over the hive position's 8 horizontal neighbors,
-so vanilla's downward-scan and obstruction logic is reused untouched per
-column.
+A single mixin injects at that method's return: when the vanilla single-column
+scan comes up empty, it re-runs the same vanilla scan on the 8 neighboring
+columns (with a reentrancy guard so those inner calls stay single-column).
+Vanilla's downward-scan depth and smoke-obstruction logic is reused untouched
+per column. This method's signature is stable across the 1.21.x line, so the
+jar built against 1.21.1 also loads on later 1.21.x servers.
 
 The mod has no Fabric API dependency — only Fabric Loader (>= 0.16).
 

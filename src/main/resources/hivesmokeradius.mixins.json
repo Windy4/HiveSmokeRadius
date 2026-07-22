@@ -4,8 +4,7 @@
 	"package": "nz.owe.hivesmokeradius.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-		"BeehiveBlockEntityMixin",
-		"BeehiveBlockMixin"
+		"CampfireBlockMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
