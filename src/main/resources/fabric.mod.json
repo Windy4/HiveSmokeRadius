@@ -1,0 +1,25 @@
+{
+	"schemaVersion": 1,
+	"id": "hivesmokeradius",
+	"version": "${version}",
+	"name": "Hive Smoke Radius",
+	"description": "Widens the beehive smoked-out check: a lit campfire below any of the 8 columns adjacent (or diagonal) to the hive also calms the bees for harvest.",
+	"authors": [
+		"windy4"
+	],
+	"license": "MIT",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"nz.owe.hivesmokeradius.HiveSmokeRadiusMod"
+		]
+	},
+	"mixins": [
+		"hivesmokeradius.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.0",
+		"minecraft": "~1.21.1",
+		"java": ">=21"
+	}
+}

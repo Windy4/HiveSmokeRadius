@@ -1,0 +1,13 @@
+{
+	"required": true,
+	"minVersion": "0.8",
+	"package": "nz.owe.hivesmokeradius.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+		"BeehiveBlockEntityMixin",
+		"BeehiveBlockMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
